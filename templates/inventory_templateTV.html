@@ -1,0 +1,18 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!--
+	If you wish to hide the table view header that contains the column titles,
+	add the following to the inventory_init() hook (in hooks/inventory.php file)
+	  $options->ShowTableHeader = 0;
+-->
+
+		<td id="inventory-id-<%%VALUE(id)%%>" class="inventory-id text-right"><%%SELECT%%><%%VALUE(id)%%><%%ENDSELECT%%></td>
+		<td id="inventory-item-<%%VALUE(id)%%>" class="inventory-item "><%%SELECT%%><%%VALUE(item)%%><%%ENDSELECT%%></td>
+		<td id="inventory-status-<%%VALUE(id)%%>" class="inventory-status text-center"><%%SELECT%%><%%VALUE(status)%%><%%ENDSELECT%%></td>
+		<td id="inventory-item_cost-<%%VALUE(id)%%>" class="inventory-item_cost text-right"><%%SELECT%%><%%VALUE(item_cost)%%><%%ENDSELECT%%></td>
+		<td id="inventory-price_high-<%%VALUE(id)%%>" class="inventory-price_high text-right"><%%SELECT%%><%%VALUE(price_high)%%><%%ENDSELECT%%></td>
+		<td id="inventory-price_low-<%%VALUE(id)%%>" class="inventory-price_low text-right"><%%SELECT%%><%%VALUE(price_low)%%><%%ENDSELECT%%></td>
+		<td id="inventory-item_number-<%%VALUE(id)%%>" class="inventory-item_number text-center"><%%SELECT%%><%%VALUE(item_number)%%><%%ENDSELECT%%></td>
+		<td id="inventory-inventory_photo-<%%VALUE(id)%%>" class="inventory-inventory_photo text-center"><a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(inventory_photo)%%>" data-lightbox="inventory-inventory_photo"><img src="thumbnail.php?i=<%%VALUE(inventory_photo)%%>&t=inventory&f=inventory_photo&v=tv" class="img-thumbnail"></a></td>
+		<td id="inventory-location-<%%VALUE(id)%%>" class="inventory-location text-right"><%%SELECT%%><%%VALUE(location)%%><%%ENDSELECT%%></td>

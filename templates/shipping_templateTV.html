@@ -1,0 +1,21 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!--
+	If you wish to hide the table view header that contains the column titles,
+	add the following to the shipping_init() hook (in hooks/shipping.php file)
+	  $options->ShowTableHeader = 0;
+-->
+
+		<td id="shipping-register_id-<%%VALUE(id)%%>" class="shipping-register_id "><%%SELECT%%><%%VALUE(register_id)%%><%%ENDSELECT%%></td>
+		<td id="shipping-client_name-<%%VALUE(id)%%>" class="shipping-client_name "><%%SELECT%%><%%VALUE(client_name)%%><%%ENDSELECT%%></td>
+		<td id="shipping-phone-<%%VALUE(id)%%>" class="shipping-phone "><%%SELECT%%><%%VALUE(phone)%%><%%ENDSELECT%%></td>
+		<td id="shipping-email-<%%VALUE(id)%%>" class="shipping-email "><%%SELECT%%><%%VALUE(email)%%><%%ENDSELECT%%></td>
+		<td id="shipping-company-<%%VALUE(id)%%>" class="shipping-company "><%%SELECT%%><%%VALUE(company)%%><%%ENDSELECT%%></td>
+		<td id="shipping-shipping_gateway-<%%VALUE(id)%%>" class="shipping-shipping_gateway text-center"><%%SELECT%%><%%VALUE(shipping_gateway)%%><%%ENDSELECT%%></td>
+		<td id="shipping-street_address-<%%VALUE(id)%%>" class="shipping-street_address "><%%SELECT%%><%%VALUE(street_address)%%><%%ENDSELECT%%></td>
+		<td id="shipping-city-<%%VALUE(id)%%>" class="shipping-city "><%%SELECT%%><%%VALUE(city)%%><%%ENDSELECT%%></td>
+		<td id="shipping-state-<%%VALUE(id)%%>" class="shipping-state "><%%SELECT%%><%%VALUE(state)%%><%%ENDSELECT%%></td>
+		<td id="shipping-zip-<%%VALUE(id)%%>" class="shipping-zip "><%%SELECT%%><%%VALUE(zip)%%><%%ENDSELECT%%></td>
+		<td id="shipping-country-<%%VALUE(id)%%>" class="shipping-country "><%%SELECT%%><%%VALUE(country)%%><%%ENDSELECT%%></td>
+		<td id="shipping-tracking_number-<%%VALUE(id)%%>" class="shipping-tracking_number text-center"><%%SELECT%%><%%VALUE(tracking_number)%%><%%ENDSELECT%%></td>

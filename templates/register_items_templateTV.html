@@ -1,0 +1,12 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!--
+	If you wish to hide the table view header that contains the column titles,
+	add the following to the register_items_init() hook (in hooks/register_items.php file)
+	  $options->ShowTableHeader = 0;
+-->
+
+		<td id="register_items-item_name-<%%VALUE(id)%%>" class="register_items-item_name "><%%SELECT%%><%%VALUE(item_name)%%><%%ENDSELECT%%></td>
+		<td id="register_items-cost-<%%VALUE(id)%%>" class="register_items-cost text-center"><%%SELECT%%><%%VALUE(cost)%%><%%ENDSELECT%%></td>
+		<td id="register_items-ref_img-<%%VALUE(id)%%>" class="register_items-ref_img "><a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(ref_img)%%>" data-lightbox="register_items-ref_img"><img src="thumbnail.php?i=<%%VALUE(ref_img)%%>&t=inventory&f=inventory_photo&v=tv" class="img-thumbnail"></a></td>

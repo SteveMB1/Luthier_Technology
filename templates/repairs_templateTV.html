@@ -1,0 +1,17 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!--
+	If you wish to hide the table view header that contains the column titles,
+	add the following to the repairs_init() hook (in hooks/repairs.php file)
+	  $options->ShowTableHeader = 0;
+-->
+
+		<td id="repairs-repair_status-<%%VALUE(id)%%>" class="repairs-repair_status "><%%SELECT%%><%%VALUE(repair_status)%%><%%ENDSELECT%%></td>
+		<td id="repairs-item-<%%VALUE(id)%%>" class="repairs-item "><%%SELECT%%><%%VALUE(item)%%><%%ENDSELECT%%></td>
+		<td id="repairs-perform-<%%VALUE(id)%%>" class="repairs-perform "><%%SELECT%%><%%VALUE(perform)%%><%%ENDSELECT%%></td>
+		<td id="repairs-repair_notes-<%%VALUE(id)%%>" class="repairs-repair_notes "><%%SELECT%%><%%VALUE(repair_notes)%%><%%ENDSELECT%%></td>
+		<td id="repairs-cost-<%%VALUE(id)%%>" class="repairs-cost text-right"><%%SELECT%%><%%VALUE(cost)%%><%%ENDSELECT%%></td>
+		<td id="repairs-batch_number-<%%VALUE(id)%%>" class="repairs-batch_number "><%%SELECT%%><%%VALUE(batch_number)%%><%%ENDSELECT%%></td>
+		<td id="repairs-photo_1-<%%VALUE(id)%%>" class="repairs-photo_1 text-center"><a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_1)%%>" data-lightbox="repairs-photo_1"><img src="thumbnail.php?i=<%%VALUE(photo_1)%%>&t=repairs&f=photo_1&v=tv" class="img-thumbnail"></a></td>
+		<td id="repairs-photo_2-<%%VALUE(id)%%>" class="repairs-photo_2 text-center"><a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_2)%%>" data-lightbox="repairs-photo_2"><img src="thumbnail.php?i=<%%VALUE(photo_2)%%>&t=repairs&f=photo_2&v=tv" class="img-thumbnail"></a></td>

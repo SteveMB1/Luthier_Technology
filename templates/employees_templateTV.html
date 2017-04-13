@@ -1,0 +1,15 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!--
+	If you wish to hide the table view header that contains the column titles,
+	add the following to the employees_init() hook (in hooks/employees.php file)
+	  $options->ShowTableHeader = 0;
+-->
+
+		<td id="employees-first-<%%VALUE(id)%%>" class="employees-first "><%%SELECT%%><%%VALUE(first)%%><%%ENDSELECT%%></td>
+		<td id="employees-last-<%%VALUE(id)%%>" class="employees-last "><%%SELECT%%><%%VALUE(last)%%><%%ENDSELECT%%></td>
+		<td id="employees-street_addr-<%%VALUE(id)%%>" class="employees-street_addr "><%%SELECT%%><%%VALUE(street_addr)%%><%%ENDSELECT%%></td>
+		<td id="employees-city-<%%VALUE(id)%%>" class="employees-city "><%%SELECT%%><%%VALUE(city)%%><%%ENDSELECT%%></td>
+		<td id="employees-state-<%%VALUE(id)%%>" class="employees-state "><%%SELECT%%><%%VALUE(state)%%><%%ENDSELECT%%></td>
+		<td id="employees-hire_date-<%%VALUE(id)%%>" class="employees-hire_date "><%%SELECT%%><%%VALUE(hire_date)%%><%%ENDSELECT%%></td>

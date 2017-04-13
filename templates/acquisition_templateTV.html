@@ -1,0 +1,19 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!--
+	If you wish to hide the table view header that contains the column titles,
+	add the following to the acquisition_init() hook (in hooks/acquisition.php file)
+	  $options->ShowTableHeader = 0;
+-->
+
+		<td id="acquisition-call_back-<%%VALUE(id)%%>" class="acquisition-call_back "><%%SELECT%%><%%VALUE(call_back)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-seller_name-<%%VALUE(id)%%>" class="acquisition-seller_name text-center"><%%SELECT%%><%%VALUE(seller_name)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-phone-<%%VALUE(id)%%>" class="acquisition-phone text-center"><%%SELECT%%><%%VALUE(phone)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-purchase_notes-<%%VALUE(id)%%>" class="acquisition-purchase_notes "><%%SELECT%%><%%VALUE(purchase_notes)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-priority-<%%VALUE(id)%%>" class="acquisition-priority text-center"><%%SELECT%%><%%VALUE(priority)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-location_city-<%%VALUE(id)%%>" class="acquisition-location_city "><%%SELECT%%><%%VALUE(location_city)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-pickup_date-<%%VALUE(id)%%>" class="acquisition-pickup_date "><%%SELECT%%><%%VALUE(pickup_date)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-pickup_time-<%%VALUE(id)%%>" class="acquisition-pickup_time "><%%SELECT%%><%%VALUE(pickup_time)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-category-<%%VALUE(id)%%>" class="acquisition-category "><%%SELECT%%><%%VALUE(category)%%><%%ENDSELECT%%></td>
+		<td id="acquisition-photo_1-<%%VALUE(id)%%>" class="acquisition-photo_1 text-center"><a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_1)%%>" data-lightbox="acquisition-photo_1"><img src="thumbnail.php?i=<%%VALUE(photo_1)%%>&t=acquisition&f=photo_1&v=tv" class="img-thumbnail"></a></td>

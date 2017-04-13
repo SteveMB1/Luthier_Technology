@@ -1,0 +1,86 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<div class="btn-group">
+			<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-primary"><i class="glyphicon glyphicon-print"></i> <%%TRANSLATION(Print)%%></button>
+			<button type="submit" id="back" title="<%%TRANSLATION(Cancel Printing)%%>" class="btn btn-default"><i class="glyphicon glyphicon-remove-circle"></i> <%%TRANSLATION(Cancel Printing)%%></button>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(id)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Repair status</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(repair_status)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="item<%%RND1%%>"><%%COMBOTEXT(item)%%></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Perform</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(perform)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Repair notes</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(repair_notes)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Cost</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(cost)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Batch ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(batch_number)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Photo 1</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var photo_1Src1<%%RND1%%>='<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_1)%%>';
+				var photo_1Src2<%%RND1%%>='thumbnail.php?t=repairs&f=photo_1&i=<%%VALUE(photo_1)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$('photo_1Img<%%RND1%%>').src=($('photo_1Img<%%RND1%%>').src.search(/thumbnail\.php/) != -1 && photo_1Src1<%%RND1%%> != '<%%TRANSLATION(ImageFolder)%%>' ? photo_1Src1<%%RND1%%> : photo_1Src2<%%RND1%%>); return false;"><img id="photo_1Img<%%RND1%%>" src="thumbnail.php?t=repairs&f=photo_1&i=<%%VALUE(photo_1)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Photo 2</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><script>
+				var photo_2Src1<%%RND1%%>='<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_2)%%>';
+				var photo_2Src2<%%RND1%%>='thumbnail.php?t=repairs&f=photo_2&i=<%%VALUE(photo_2)%%>&v=dv'
+			</script>
+			<a href="#" onclick="$('photo_2Img<%%RND1%%>').src=($('photo_2Img<%%RND1%%>').src.search(/thumbnail\.php/) != -1 && photo_2Src1<%%RND1%%> != '<%%TRANSLATION(ImageFolder)%%>' ? photo_2Src1<%%RND1%%> : photo_2Src2<%%RND1%%>); return false;"><img id="photo_2Img<%%RND1%%>" src="thumbnail.php?t=repairs&f=photo_2&i=<%%VALUE(photo_2)%%>&v=dv" class="img-thumbnail"></a></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Last Updated</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(last_update)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>

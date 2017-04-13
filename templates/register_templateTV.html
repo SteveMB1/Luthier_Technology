@@ -1,0 +1,14 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%SELECT%%> and <%%ENDSELECT%%> formatters around it-->
+
+<!--
+	If you wish to hide the table view header that contains the column titles,
+	add the following to the register_init() hook (in hooks/register.php file)
+	  $options->ShowTableHeader = 0;
+-->
+
+		<td id="register-client_name-<%%VALUE(id)%%>" class="register-client_name "><%%SELECT%%><%%VALUE(client_name)%%><%%ENDSELECT%%></td>
+		<td id="register-seller-<%%VALUE(id)%%>" class="register-seller "><%%SELECT%%><%%VALUE(seller)%%><%%ENDSELECT%%></td>
+		<td id="register-date-<%%VALUE(id)%%>" class="register-date "><%%SELECT%%><%%VALUE(date)%%><%%ENDSELECT%%></td>
+		<td id="register-phone-<%%VALUE(id)%%>" class="register-phone "><%%SELECT%%><%%VALUE(phone)%%><%%ENDSELECT%%></td>
+		<td id="register-email-<%%VALUE(id)%%>" class="register-email "><a href="mailto:<%%VALUE(email)%%>" title="<%%VALUE(email)%%>" class="btn btn-default"><i class="glyphicon glyphicon-envelope text-info"></i></a></td>

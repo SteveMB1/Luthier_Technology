@@ -1,0 +1,361 @@
+<!-- Edit this file to change the layout of the detail view form -->
+
+<script src="resources/datepicker/js/datepicker.packed.js"></script>
+<link href="resources/datepicker/css/datepicker.css" rel="stylesheet">
+
+<a name="detail-view"></a>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div class="panel-body" id="acquisition_dv_container">
+	<!-- child links -->
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="acquisition_dv_form">
+			<fieldset class="form-horizontal">
+
+				<div class="form-group">
+					<label for="id" class="control-label col-lg-3">ID <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#id-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="id-description"><div class="alert alert-info">Unique ID</div></span>
+
+						<div class="form-control-static" id="id"><%%VALUE(id)%%></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="call_back" class="control-label col-lg-3">Call back</label>
+					<div class="col-lg-9">
+						<%%COMBO(call_back)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="seller_name" class="control-label col-lg-3">Seller name<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="seller_name" id="seller_name" value="<%%VALUE(seller_name)%%>" required><div class="text-danger vspacer-md" id="seller_name-uniqueness-note" style="display: none;"><%%TRANSLATION(unique field error)%%></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="phone" class="control-label col-lg-3">Phone<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<input maxlength="40" type="text" class="form-control" name="phone" id="phone" value="<%%VALUE(phone)%%>" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="purchase_notes" class="control-label col-lg-3">Notepad & Item(s) <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#purchase_notes-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="purchase_notes-description"><div class="alert alert-info">One Item, multiple items should be listed as below.<br>- Item1<br>- Item2<br><br>Notes....</div></span>
+
+						<%%HTMLAREA(purchase_notes)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="priority" class="control-label col-lg-3">Purchase Priority<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(priority)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="location_city" class="control-label col-lg-3">City</label>
+					<div class="col-lg-9">
+						<input maxlength="150" type="text" class="form-control" name="location_city" id="location_city" value="<%%VALUE(location_city)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="location_state" class="control-label col-lg-3">State</label>
+					<div class="col-lg-9">
+						<%%COMBO(location_state)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="pickup_date" class="control-label col-lg-3">Pickup date</label>
+					<div class="col-lg-9">
+						<%%COMBO(pickup_date)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="pickup_time" class="control-label col-lg-3">Pickup time</label>
+					<div class="col-lg-9">
+						<input maxlength="" type="text" class="form-control" name="pickup_time" id="pickup_time" value="<%%VALUE(pickup_time)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="street_address" class="control-label col-lg-3">Street address</label>
+					<div class="col-lg-9">
+						<input maxlength="200" type="text" class="form-control" name="street_address" id="street_address" value="<%%VALUE(street_address)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="category" class="control-label col-lg-3">Category<span class="text-danger"><%%TRANSLATION(*)%%></span></label>
+					<div class="col-lg-9">
+						<%%COMBO(category)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="ref_listing" class="control-label col-lg-3">Link - Similar Online Product <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#ref_listing-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="ref_listing-description"><div class="alert alert-info">Provide a link to a listing of the same product of the lowest price. <br>If the seller has multiple items paste the one with the most significance here.</div></span>
+
+						
+						<div class="row">
+							<div class="col-md-8">
+								<a id="ref_listing-link" href="link.php?t=acquisition&f=ref_listing&i=<%%VALUE(id)%%>" target="_blank"><%%VALUE(ref_listing)%%></a>
+								<label for="ref_listing"><button type="button" id="ref_listing-edit-link" class="btn btn-default hspacer-lg vspacer-sm" data-toggle="collapse" data-target="#ref_listing" title="<%%TRANSLATION(Edit)%%>"><i class="glyphicon glyphicon-pencil"></i></button></label>
+							</div>
+							<script>jQuery(function(){ var e_ref_listing = '<%%VALUE(ref_listing)%%>'; if(e_ref_listing == '' || e_ref_listing == '&nbsp;' || e_ref_listing == 'blank.gif') jQuery('#ref_listing-link').hide(); });</script><input maxlength="40" type="text" class="form-control collapse" name="ref_listing" id="ref_listing" value="<%%VALUE(ref_listing)%%>">					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Photo 1 <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#photo_1-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="photo_1-description"><div class="alert alert-info">You may use this option to upload a photo to the appraiser.<br>Maximum file size allowed: 4000 KB.<br>Allowed file types: jpg, jpeg, gif, png</div></span>
+
+						<div class="row form-control-static"><div class="col-md-8">
+
+						<a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_1)%%>" data-lightbox="acquisition_dv"><img src="thumbnail.php?i=<%%VALUE(photo_1)%%>&t=acquisition&f=photo_1&v=dv" class="img-thumbnail" id="photo_1-image"></a>
+</div>
+
+												<div class="col-md-4" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(photo_1)%%>
+							<%%REMOVEFILE(photo_1)%%>
+						</div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Photo 2 <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#photo_2-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="photo_2-description"><div class="alert alert-info">You may use this option to upload a photo to the appraiser.</div></span>
+
+						<div class="row form-control-static"><div class="col-md-8">
+
+						<a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_2)%%>" data-lightbox="acquisition_dv"><img src="thumbnail.php?i=<%%VALUE(photo_2)%%>&t=acquisition&f=photo_2&v=dv" class="img-thumbnail" id="photo_2-image"></a>
+</div>
+
+												<div class="col-md-4" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(photo_2)%%>
+							<%%REMOVEFILE(photo_2)%%>
+						</div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Photo 3 <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#photo_3-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="photo_3-description"><div class="alert alert-info">You may use this option to upload a photo to the appraiser.</div></span>
+
+						<div class="row form-control-static"><div class="col-md-8">
+
+						<a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_3)%%>" data-lightbox="acquisition_dv"><img src="thumbnail.php?i=<%%VALUE(photo_3)%%>&t=acquisition&f=photo_3&v=dv" class="img-thumbnail" id="photo_3-image"></a>
+</div>
+
+												<div class="col-md-4" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(photo_3)%%>
+							<%%REMOVEFILE(photo_3)%%>
+						</div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Photo 4 <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#photo_4-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="photo_4-description"><div class="alert alert-info">You may use this option to upload a photo to the appraiser.</div></span>
+
+						<div class="row form-control-static"><div class="col-md-8">
+
+						<a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_4)%%>" data-lightbox="acquisition_dv"><img src="thumbnail.php?i=<%%VALUE(photo_4)%%>&t=acquisition&f=photo_4&v=dv" class="img-thumbnail" id="photo_4-image"></a>
+</div>
+
+												<div class="col-md-4" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(photo_4)%%>
+							<%%REMOVEFILE(photo_4)%%>
+						</div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Photo 5 <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#photo_5-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="photo_5-description"><div class="alert alert-info">You may use this option to upload a photo to the appraiser.</div></span>
+
+						<div class="row form-control-static"><div class="col-md-8">
+
+						<a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_5)%%>" data-lightbox="acquisition_dv"><img src="thumbnail.php?i=<%%VALUE(photo_5)%%>&t=acquisition&f=photo_5&v=dv" class="img-thumbnail" id="photo_5-image"></a>
+</div>
+
+												<div class="col-md-4" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(photo_5)%%>
+							<%%REMOVEFILE(photo_5)%%>
+						</div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Photo 6 <i class="glyphicon glyphicon-info-sign text-info" data-toggle="collapse" data-target="#photo_6-description"></i></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="photo_6-description"><div class="alert alert-info">You may use this option to upload a photo to the appraiser.</div></span>
+
+						<div class="row form-control-static"><div class="col-md-8">
+
+						<a href="<%%TRANSLATION(ImageFolder)%%><%%VALUE(photo_6)%%>" data-lightbox="acquisition_dv"><img src="thumbnail.php?i=<%%VALUE(photo_6)%%>&t=acquisition&f=photo_6&v=dv" class="img-thumbnail" id="photo_6-image"></a>
+</div>
+
+												<div class="col-md-4" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(photo_6)%%>
+							<%%REMOVEFILE(photo_6)%%>
+						</div>
+					</div>
+
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<div class="col-md-4 col-lg-2" id="acquisition_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script src="nicEdit.js"></script>
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			bkLib.onDomLoaded(function(){
+				if($j('textarea#purchase_notes').length) new nicEditor().panelInstance('purchase_notes');
+
+				$j('.nicEdit-panelContain').parent().width('90%');
+				$j('.nicEdit-panelContain').parent().next().width('88%');
+				$j('.nicEdit-main').width('99%');
+			});
+			/* enable DV action buttons to float on scrolling down the form */
+			enable_dvab_floating();
+
+			$j('select, input[type=text], textarea').not(':disabled').eq(0).focus();
+			$j('form').eq(0).change(function(){
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%TRANSLATION(ImageFolder)%%>"]').click(function(){ return false; });
+
+
+			if(!embedded_mode){
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-md)').next().addClass('hspacer-md');
+
+				$j('.add_new_parent').click(function(){
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function(){
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			/* find and hide parent links if field label has data 'parent_link' set to 'view_parent_hidden' */
+			$j('label[data-parent_link=view_parent_hidden]').each(function(){
+				$j(this).parents('.form-group').find('.view_parent').hide();
+			});
+
+			$j('form').on('click', '.view_parent', function(){
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length){
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				}else{
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length){
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}'){
+					var parent_link = $j(this).parents('.form-group').children('label').data('parent_link');
+					switch(parent_link){
+						case 'view_parent_hidden':
+							break;
+						case 'view_parent_modal':
+							modal_window({
+								url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+								close: function(){
+									var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+									$j('#' + field_id + '-container').select2('focus').select2('focus');
+								},
+								size: 'full',
+								title: $j(this).attr('title')
+							});
+							break;
+						case 'view_parent_same_window':
+							window.location = pt + '_view.php?Embedded=' + (embedded_mode ? '1' : '') + '&SelectedID=' + encodeURIComponent(parent_id);
+							break;
+						case 'view_parent_new_window':
+							window.open(pt + '_view.php?SelectedID=' + encodeURIComponent(parent_id));
+							break;
+					}
+
+				}
+			});
+
+			enforce_uniqueness('acquisition', 'seller_name');
+
+		});
+	</script>
